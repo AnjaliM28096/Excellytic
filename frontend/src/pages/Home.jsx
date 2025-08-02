@@ -1,12 +1,10 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
+
+import "./index.css";
+import Dashboard from "./Dashboard";
 
 const Home = () => {
-  return (
-    <div>
-      <HeroSection />
-    </div>
-  );
+  return <div className="dashboard-home"></div>;
 };
 
 export default Home;

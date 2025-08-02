@@ -12,7 +12,6 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
   return (
     <div className="auth-page">
       <Navbar isAuthenticated={false} />

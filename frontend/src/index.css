@@ -4,6 +4,29 @@
   --text-dark: #2c3e50;
 }
 
+.main-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  margin: 70px 0 0 240px; /* Adjust based on navbar/sidebar size */
+  min-height: calc(100vh - 70px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Add pattern overlay */
+.analytics-page::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background-image: url("https://www.transparenttextures.com/patterns/graphy.png");
+  pointer-events: none;
+  z-index: 0;
+}
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
@@ -193,4 +216,516 @@ body {
 
 .sidebar {
   text-decoration: none;
+}
+
+/* src/index.css */
+:root {
+  --primary-blue: #e3f2fd;
+  --secondary-blue: #bbdefb;
+  --accent-blue: #42a5f5;
+}
+/* .background-wrapper {
+  background-image: url("\assets\images\dashboard.png"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.background-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);  
+  z-index: 0;
+} */
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+  background: var(--primary-blue);
+}
+
+.sidebar {
+  background: white;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-blue);
+  margin-bottom: 2rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 6px;
+  color: #2d3436;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.sidebar nav a:hover {
+  background: var(--secondary-blue);
+}
+
+.sidebar nav a.active {
+  background: var(--accent-blue);
+  color: white;
+}
+
+.main-content {
+  padding: 2rem;
+}
+
+.file-upload button {
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+
+.file-upload button:hover {
+  transform: translateY(-2px);
+}
+/* Data Preview Styles */
+.data-preview {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.stats span {
+  margin-left: 1.5rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(66, 165, 245, 0.1);
+  border-radius: 6px;
+  color: #2d3436;
+}
+
+.axis-selectors {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.axis-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #42a5f5;
+  border-radius: 6px;
+  background: white;
+  color: #2d3436;
+}
+
+.preview-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.table-container {
+  max-height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f8f9fa;
+}
+
+.chart-preview {
+  height: 400px;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+/* Reports Page Styles */
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.report-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.chart-container {
+  height: 250px;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.report-meta {
+  padding: 1.5rem;
+}
+
+.report-meta h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2d3436;
+}
+
+.report-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.download-btn,
+.share-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.download-btn {
+  background: #42a5f5;
+  color: white;
+}
+
+.share-btn {
+  background: #e3f2fd;
+  color: #2d3436;
+}
+
+.download-btn:hover,
+.share-btn:hover {
+  opacity: 0.9;
+}
+
+/* Analytics Page Styles */
+.analytics-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chart-config {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.chart-select,
+.axis-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #42a5f5;
+  border-radius: 6px;
+  background: white;
+  color: #2d3436;
+  font-size: 1rem;
+}
+
+.chart-container {
+  height: 600px;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.no-data,
+.no-selection {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.download-btn {
+  background: #42a5f5;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+}
+
+/* Update your CSS */
+.sidebar {
+  background: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: fixed;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  width: 240px;
+}
+
+.sidebar.closed {
+  width: 60px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 1rem;
+}
+
+.hamburger-btn:hover {
+  background: #f0f8ff;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: #2d3436;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background: #f0f8ff;
+}
+
+.sidebar-nav a.active {
+  background: #42a5f5;
+  color: white;
+}
+
+.sidebar.closed .logo {
+  display: none;
+}
+
+/* Update dashboard container */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 100vh;
+  background: #f0f8ff;
+  margin-left: 60px; /* Match closed sidebar width */
+}
+
+.sidebar.open ~ .main-content {
+  margin-left: 240px;
+}
+/* Navbar Styles */
+.navbar {
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #f0f8ff;
+  color: #f0f8ff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.upload-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upload-btn {
+  background: #42a5f5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #2c3e50;
+  border-radius: 5px;
+}
+
+.signup-btn {
+  align-items: center;
+  background: #42a5f5;
+  color: white;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 60px; /* Navbar height */
+  bottom: 0;
+  background: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 240px;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 1rem;
+  color: #2d3436;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background: #f0f8ff;
+}
+
+.sidebar-nav a.active {
+  background: #42a5f5;
+  color: white;
+}
+
+/* Main Content Adjustment */
+.main-content {
+  margin-top: 70px; /* Navbar height */
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.open ~ .main-content {
+  margin-left: 40px;
+}
+
+.dashboard-home {
+  background-image: url("/images/dashboard-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+  padding: 2rem;
+}
+
+/* Overlay for better readability */
+.dashboard-home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 0;
+}
+
+/* Content styling */
+.dashboard-home > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep existing dashboard styles */
+.metrics-grid,
+.upload-btn {
+  /* Your existing dashboard styles */
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
 }
